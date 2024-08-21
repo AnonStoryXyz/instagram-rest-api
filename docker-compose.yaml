@@ -2,6 +2,7 @@ version: "3.3"
 services:
   instagram-rest-api:
     image: cr.dotdevio.com/anonstory/instagrapi-rest:latest
+    networks: ['anonstory']
     build: .
     stdin_open: true
     tty: true
@@ -9,3 +10,8 @@ services:
     #  - "8090:8000"
     volumes:
       - .:/app
+
+networks:
+  anonstory:
+    name: anonstory_default
+    external: true
